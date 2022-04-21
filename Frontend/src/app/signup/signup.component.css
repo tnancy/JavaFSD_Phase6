@@ -1,0 +1,20 @@
+.back{
+    background-color: rgb(95, 199, 95);
+    /* background-image: url('../../assets/images/back.webp'); */
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.h1{
+    text-align: center;
+}
+
+.border
+{
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(83, 42, 12);
+    width: 30rem;
+    padding: 20rem;
+}

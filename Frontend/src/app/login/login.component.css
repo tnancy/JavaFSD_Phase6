@@ -1,0 +1,30 @@
+.back{
+    background-color: rgb(119, 1, 1);
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: 1920 X 1080;
+
+}
+
+.h1{
+    text-align: center;
+}
+
+.border
+{
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(83, 42, 12);
+    width: 100%;
+    padding: 20rem;
+} 
+
+
+/*.bg-img
+{
+    
+    background-image: url("../../assets/images/bg1.jpg");
+    height: 2in;
+    width:1.5in;
+    background-size: contain;
+}*/

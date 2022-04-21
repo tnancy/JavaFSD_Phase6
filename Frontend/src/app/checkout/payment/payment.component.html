@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col">
+        <h1 class="text-center">Payment Portal</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card text-center">
+            <div class="card-header">
+                Please pay to confirm order...
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Payment method: UPI</h5>
+                <p class="card-text">Clicking pay now below will generate a UPI request to your mobile app. Please
+                    approve the transaction there.</p>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Pay now</a>
+            </div>
+            <div class="card-footer text-muted">
+                Please do not close or refresh this page
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" style="color: rgb(95, 199, 95);">Payment successful !!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Order details</h6>
+                <app-cart [cart]="cart"></app-cart>
+            </div>
+            <div class="modal-footer">
+                <a href="/" class="btn btn-primary">Go back
+                    home</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col">
+  <!-------------------------------------- NAVIGATION BAR  ----------------------------------------------------->
+   <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" style="color: rgb(23, 21, 26); font-weight: bolder; font-size: 5.5rem; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" href="#">Foodbox</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div style="width: 18rem;">
+       
+        <ul class="navbar-nav me-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+            </li>
+            <li class="nav-item">
+                <h1 class="text-center" style="font-size: x-large; font-weight: bold; color: sienna;">Welcome {{user.username}}!</h1>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    </div>
+    <div class="col-auto align-self-center">
+        <a [hidden]="!user.admin" class="btn btn-primary me-1" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">Change password</a>
+        <a routerLink="/checkout" class="btn btn-primary"><i class="bi bi-cart"></i> {{cart.items}}</a>
+    </div>
+</div>
+
+<!-------------------------------------- HOME SECTION  ----------------------------------------------------->
+    <div class="col" section="home">
+        <img src="../../assets/images/bg1.jpg" style="height: 40%; width: 100%;">
+    </div>
+
+    <div style="width: 8rem;">
+      <br><br>
+    </div>
+    <!-------------------------------------- SEARCH BAR  ----------------------------------------------------->
+<div class="row">
+    <div class="col">
+        <form>
+            <input (ngModelChange)="updateFilter($event)" [(ngModel)]="searchText" class="w-100 srch" type="text"
+                name="search" placeholder="Search for food..." />
+        </form>
+    </div>
+    <div class="col">
+      <form>
+          <input (ngModelChange)="updateFilterCuisine($event)" [(ngModel)]="searchTextCuisine" class="w-100 srch" type="text"
+              name="cuisineFilter" placeholder="Filter by Cuisine" />
+      </form>
+  </div>
+  <div class="col">
+    <form>
+        <input (ngModelChange)="updateFilterPrice($event)" [(ngModel)]="searchTextPrice" class="w-100 srch" type="text"
+            name="priceFilter" placeholder="Filter by Cost" />
+    </form>
+</div>
+
+</div>
+
+
+<br><br>
+<div class="row mt-3">
+    <app-product-list (newCartItemEvent)="addToCart($event)" (deleteProduct)="deleteProduct($event)"
+        [admin]="user.admin" [products]="filteredProducts">
+    </app-product-list>
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Change password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3 align-items-center">
+                    <form [formGroup]="changePassGroup" class="border p-4 rounded border-primary">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">New password</label>
+                            <input formControlName="username" type="password" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Confirm password</label>
+                            <input formControlName="password" type="password" class="form-control"
+                                id="exampleInputPassword1">
+                        </div>
+                        <button (click)="handleSubmit()" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="/" class="btn btn-primary">Go back
+                    home</a>
+            </div>
+        </div>
+    </div>
+</div>

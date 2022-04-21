@@ -1,0 +1,35 @@
+<div class="back">
+    <div class="row" style="color: white; margin-top: 3rem; padding-top: 2rem;">
+        <br><br>
+        <h1 class="h1">Register User</h1>
+        <br><br>
+    </div>
+<div class="row justify-content-center mt-3">
+    <div class="col-auto">
+        <form [formGroup]="signupForm" class="border p-4 rounded border-primary" style="background-color: white">
+            <div class="mb-3">
+                <label for="exampleInputUsername1" class="form-label">Username</label>
+                <input formControlName="username" type="text" class="form-control" id="exampleInputUsername1"
+                    aria-describedby="userHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input formControlName="email" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <button (click)="handleSubmit()" type="submit" class="btn btn-primary">Register</button>
+            <div [hidden]="!errorMessage" class="mt-2 text-danger">
+                {{errorMessage}}
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+<div class="row" style="width: 25rem;">
+    <br><br><br><br><br>
+</div>
